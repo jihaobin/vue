@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <button @click="serc">减少</button>
+      {{num}}
+      <button @click="add">增加</button>
+      <div style="color: red" v-if="erro">{{target}}:{{erro}}</div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            name: "click",
+            num: 0,
+            target: "",
+            erro: "",
+          };
+        },
+        methods: {
+          add() {
+            this.target = "提示";
+            if (this.num < 10) this.num++;
+          },
+          serc() {
+            this.target = "警告";
+            if (this.num >= 0) this.num--;
+          },
+        },
+        watch: {
+          num(newnum, oldnum) {
+            this.erro =
+              newnum <= 0 ? "不能小于0" : newnum >= 10 ? "不能大于10" : "";
+          },
+        },
+      }).mount("#root");
+    </script>
+  </body>
+</html>
