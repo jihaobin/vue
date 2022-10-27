@@ -1,7 +1,9 @@
 <script>
 import lesson from "./lesson/lessonSon.vue";
+import myinput from "./lesson/myinput.vue";
+import modelMyinput from "./lesson/v-model-myinput.vue";
 export default {
-  components: { lesson },
+  components: { lesson, myinput, modelMyinput },
   data() {
     return {
       lessons: [
@@ -9,11 +11,17 @@ export default {
         { id: 2, name: "vue", img: "/vue3.jpg" },
         { id: 3, name: "tapescript", img: "/ts.jpg" },
       ],
+      title: "hello",
     };
   },
   methods: {
     del(index) {
       this.lessons.splice(index, 1);
+    },
+    change(v) {
+      //传递给子组件的事件
+      //使用v-model绑定时可以删除
+      this.title = v;
     },
   },
 };
@@ -29,6 +37,14 @@ export default {
       @del="del"
     />
   </div>
+  v-model父组件{{ title }} <model-myinput v-model:title="title" />
+
+  v-model父组件{{ title }} <model-myinput v-model:title="title" />
+
+  v-model父组件{{ title }} <myinput :value="title" @updata="change" />
+
+  v-model父组件{{ title }}<myinput :value="title" @updata="change" />
+  <!--传递事件 -->
 </template>
 
 <style lang="scss">
