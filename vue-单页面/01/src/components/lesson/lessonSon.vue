@@ -2,7 +2,17 @@
   <div>
     <span @click="$emit('del', index)">X</span>
     <img :src="lesson.img" />
-    <h3>{{ lesson.name }}</h3>
+    <h3 @dblclick="isShow = true">
+      <input
+        v-if="isShow"
+        type="text"
+        v-model="lesson.name"
+        @blur="isShow = false"
+        @keyup.enter="isShow = false"
+        v-focus
+      />
+      <strong v-else>{{ lesson.name }}</strong>
+    </h3>
   </div>
 </template>
 
@@ -10,6 +20,11 @@
 export default {
   props: ["lesson", "index"],
   emits: ["del"],
+  data() {
+    return {
+      isShow: false,
+    };
+  },
 };
 </script>
 

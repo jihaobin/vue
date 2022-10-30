@@ -37,14 +37,15 @@ export default {
       @del="del"
     />
   </div>
-  v-model父组件{{ title }} <model-myinput v-model:title="title" />
+  {{ lessons[0].name }}
+  <!-- v-model父组件{{ title }} <model-myinput v-model:title="title" />
 
   v-model父组件{{ title }} <model-myinput v-model:title="title" />
 
   v-model父组件{{ title }} <myinput :value="title" @updata="change" />
 
   v-model父组件{{ title }}<myinput :value="title" @updata="change" />
-  <!--传递事件 -->
+  传递事件 -->
 </template>
 
 <style lang="scss">
