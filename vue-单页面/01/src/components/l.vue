@@ -7,9 +7,9 @@ export default {
   data() {
     return {
       lessons: [
-        { id: 1, name: "javascript", img: "/js.png" },
-        { id: 2, name: "vue", img: "/vue3.jpg" },
-        { id: 3, name: "tapescript", img: "/ts.jpg" },
+        { id: 1, name: "javascript", img: "/js.png", price: 197 },
+        { id: 2, name: "vue", img: "/vue3.jpg", price: 200 },
+        { id: 3, name: "tapescript", img: "/ts.jpg", price: 150 },
       ],
       title: "hello",
     };
@@ -37,7 +37,6 @@ export default {
       @del="del"
     />
   </div>
-  {{ lessons[0].name }}
   <!-- v-model父组件{{ title }} <model-myinput v-model:title="title" />
 
   v-model父组件{{ title }} <model-myinput v-model:title="title" />

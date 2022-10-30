@@ -3,6 +3,7 @@
     <span @click="$emit('del', index)">X</span>
     <img :src="lesson.img" />
     <h3 @dblclick="isShow = true">
+      课程名称：
       <input
         v-if="isShow"
         type="text"
@@ -12,6 +13,19 @@
         v-focus
       />
       <strong v-else>{{ lesson.name }}</strong>
+    </h3>
+
+    <h3 @dblclick="isprice = true">
+      价格：
+      <input
+        v-if="isprice"
+        type="text"
+        v-model="lesson.price"
+        @blur="isprice = false"
+        @keyup.enter="isprice = false"
+        v-focus
+      />
+      <strong v-else>{{ lesson.price }}</strong>
     </h3>
   </div>
 </template>
@@ -23,6 +37,7 @@ export default {
   data() {
     return {
       isShow: false,
+      isprice: false,
     };
   },
 };
