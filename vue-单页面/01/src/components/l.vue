@@ -32,8 +32,8 @@ export default {
     <lesson
       v-for="(item, index) in lessons"
       :lesson="item"
-      :index="index"
       :key="item.id"
+      v-model="item.name"
       @del="del"
     />
   </div>
