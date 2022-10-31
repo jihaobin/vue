@@ -33,7 +33,8 @@ export default {
       v-for="(item, index) in lessons"
       :lesson="item"
       :key="item.id"
-      v-model="item.name"
+      v-model:name="item.name"
+      v-model:price="item.price"
       @del="del"
     />
   </div>

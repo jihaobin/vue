@@ -8,7 +8,7 @@
         v-if="isShow"
         type="text"
         :value="lesson.name"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="$emit('update:name', $event.target.value)"
         @blur="isShow = false"
         @keyup.enter="isShow = false"
         v-focus
@@ -21,7 +21,8 @@
       <input
         v-if="isprice"
         type="text"
-        v-model="lesson.price"
+        :value="price"
+        @input="$emit('update:price', $event.target.value)"
         @blur="isprice = false"
         @keyup.enter="isprice = false"
         v-focus
@@ -33,8 +34,8 @@
 
 <script>
 export default {
-  props: ["lesson", "index", "modelValue"],
-  emits: ["del", "update:modelValue"],
+  props: ["lesson", "index", "name", "price"],
+  emits: ["del", "update:name", "update:price"],
   data() {
     return {
       isShow: false,
