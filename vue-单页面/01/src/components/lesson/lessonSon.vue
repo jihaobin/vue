@@ -8,7 +8,7 @@
         v-if="isShow"
         type="text"
         :value="lesson.name"
-        @input="$emit('update:name', $event.target.value)"
+        @input="change"
         @blur="isShow = false"
         @keyup.enter="isShow = false"
         v-focus
@@ -34,13 +34,22 @@
 
 <script>
 export default {
-  props: ["lesson", "index", "name", "price"],
-  emits: ["del", "update:name", "update:price"],
+  props: ["lesson", "index", "title", "price", "titleModifiers"],
+  emits: ["del", "update:title", "update:price"],
   data() {
     return {
       isShow: false,
       isprice: false,
     };
+  },
+  methods: {
+    change(event) {
+      let value = event.target.value;
+      if (this.titleModifiers.toupper) {
+        value = value.toUpperCase();
+      }
+      this.$emit("update:title", value);
+    },
   },
 };
 </script>

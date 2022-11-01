@@ -1,4 +1,5 @@
 <script>
+import { toNumber } from "@vue/shared";
 import lesson from "./lesson/lessonSon.vue";
 import myinput from "./lesson/myinput.vue";
 import modelMyinput from "./lesson/v-model-myinput.vue";
@@ -7,9 +8,9 @@ export default {
   data() {
     return {
       lessons: [
-        { id: 1, name: "javascript", img: "/js.png", price: 197 },
-        { id: 2, name: "vue", img: "/vue3.jpg", price: 200 },
-        { id: 3, name: "tapescript", img: "/ts.jpg", price: 150 },
+        { id: 1, name: "JAVASCRIPT", img: "/js.png", price: 197 },
+        { id: 2, name: "VUE", img: "/vue3.jpg", price: 200 },
+        { id: 3, name: "TAPESCRIPT", img: "/ts.jpg", price: 150 },
       ],
       title: "hello",
     };
@@ -24,6 +25,15 @@ export default {
       this.title = v;
     },
   },
+  computed: {
+    sum() {
+      let tempSum = 0;
+      for (const _ of this.lessons) {
+        tempSum += Number(_.price);
+      }
+      return Number(tempSum);
+    },
+  },
 };
 </script>
 
@@ -33,10 +43,11 @@ export default {
       v-for="(item, index) in lessons"
       :lesson="item"
       :key="item.id"
-      v-model:name="item.name"
+      v-model:title.toupper="item.name"
       v-model:price="item.price"
       @del="del"
     />
+    {{ sum }}
   </div>
   <!-- v-model父组件{{ title }} <model-myinput v-model:title="title" />
 
