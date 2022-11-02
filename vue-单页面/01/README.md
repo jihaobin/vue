@@ -1,29 +1,8 @@
-# 01
+#笔记
 
-This template should help get you started developing with Vue 3 in Vite.
+##vue 中作用域插槽的使用场景
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+**父组件给子组件插槽传递内容时，要使用子组件的内容**
+使组件的样式定义更加灵活以适用于不同的场景与业务
+使组件可以只包括逻辑而不需要自己来渲染内容样式
+在需要同时封装逻辑和组合视图界面使很有用
