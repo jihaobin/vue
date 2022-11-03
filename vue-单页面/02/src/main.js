@@ -1,6 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import card from "./components/card.vue";
+import XInput from "./components/Xinput.vue";
 
-import './assets/main.css'
+const app = createApp(App);
+app.component("card", card);
+app.component("XInput", XInput);
 
-createApp(App).mount('#app')
+app.mount("#app");
