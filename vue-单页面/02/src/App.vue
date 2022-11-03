@@ -1,5 +1,6 @@
 <template>
   <div class="root">
+    <button @click="show">212</button>
     <div
       class="divx"
       v-for="(item, index) of components"
@@ -10,9 +11,10 @@
       {{ item.title }}
     </div>
   </div>
-  <component :is="componentId"></component>
+  <KeepAlive>
+    <component :is="componentId" ref="test"></component>
+  </KeepAlive>
   <input v-model="name" />
-  {{ name }}
 </template>
 
 <script>
@@ -35,6 +37,11 @@ export default {
         { title: "支付宝", name: "zhifu" },
       ],
     };
+  },
+  methods: {
+    show() {
+      this.$refs.test.show();
+    },
   },
 };
 </script>

@@ -5,6 +5,7 @@ import XInput from "./components/Xinput.vue";
 import XTextarea from "./components/XTextarea.vue";
 
 const app = createApp(App);
+app.config.unwrapInjectedRef = true;
 app.component("card", card);
 app.component("XInput", XInput);
 app.component("XTextarea", XTextarea);

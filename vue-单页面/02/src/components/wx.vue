@@ -16,6 +16,11 @@ export default {
       text: "牛逼",
     };
   },
+  methods: {
+    show() {
+      console.log(1);
+    },
+  },
 };
 </script>
 
