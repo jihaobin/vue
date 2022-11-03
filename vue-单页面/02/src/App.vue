@@ -11,15 +11,24 @@
     </div>
   </div>
   <component :is="componentId"></component>
+  <input v-model="name" />
+  {{ name }}
 </template>
 
 <script>
 import wx from "./components/wx.vue";
 import zhifu from "./components/zhifu.vue";
+import { computed } from "vue";
 export default {
   components: { wx, zhifu },
+  provide() {
+    return {
+      name: computed(() => this.name),
+    };
+  },
   data() {
     return {
+      name: "Tom",
       componentId: "wx",
       components: [
         { title: "微信", name: "wx" },

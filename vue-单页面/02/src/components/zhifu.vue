@@ -5,7 +5,6 @@
       <x-input name="支付宝账号" v-model="appname" />
     </template>
   </card>
-  {{ appname }}
 </template>
 
 <script>

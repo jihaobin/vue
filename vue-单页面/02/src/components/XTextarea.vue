@@ -1,13 +1,20 @@
 <template>
   <label>
     <div>{{ name }}</div>
-    <input v-model="content" />
+    <textarea v-model="content" :rows="rows"></textarea>
   </label>
 </template>
 
 <script>
 export default {
-  props: ["name", "modelValue"],
+  props: {
+    name: String,
+    modelValue: String,
+    rows: {
+      type: Number,
+      default: 3,
+    },
+  },
   emits: ["update:modelValue"],
   inject: {
     pername: {
