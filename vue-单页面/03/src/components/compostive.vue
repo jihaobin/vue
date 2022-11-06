@@ -1,5 +1,6 @@
 <template>
   <div>
+    <component :is="defaults[0]"></component>
     <button @click="pre">-</button>
     {{ content }}
     <button @click="add">+</button>
@@ -7,23 +8,29 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref, watchEffect } from "vue";
 export default {
-  setup(props) {
-    let content = ref(0);
-
+  props: ["init"],
+  emits: ["change"],
+  setup(props, { emit, expose, slots }) {
+    let content = ref(props.init);
+    const defaults = slots.default();
     function add() {
       content.value++;
+      emit("change", content.value);
     }
     function pre() {
       content.value--;
+      emit("change", content.value);
     }
-
-    watch(content, (v) => {
-      v < 0 ? (content.value = 0) : "";
+    watchEffect(() => {
+      content.value < 0 ? (content.value = 0) : "";
+      emit("change", content.value);
     });
+    console.log();
 
-    return { content, add, pre };
+    expose({ content });
+    return { content, add, pre, defaults };
   },
 };
 </script>
