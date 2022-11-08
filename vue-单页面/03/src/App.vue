@@ -12,23 +12,15 @@
 import compostive from "./components/compostive.vue";
 import { ref, reactive, toRefs } from "vue";
 export default {
+  components: { compostive },
   setup() {
-    const hd = ref({ name: "张三" });
-
-    const change = () => {
-      hd.value.name = "李四";
+    let content = ref(3);
+    let test = ref();
+    const change = (v) => {
+      content.value = v;
     };
-    return { ...hd, change };
+    return { content, change, test };
   },
-  // components: { compostive },
-  // setup() {
-  //   let content = ref(3);
-  //   let test = ref();
-  //   const change = (v) => {
-  //     content.value = v;
-  //   };
-  //   return { content, change, test };
-  // },
 };
 </script>
 
