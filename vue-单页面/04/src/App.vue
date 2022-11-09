@@ -1,7 +1,18 @@
 <template>
-  <div>1212</div>
+  <div>
+    <Suspense>
+      <todo />
+      <template #fallback> <div>loding...</div> </template>
+    </Suspense>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import todo from "./views/todo.vue";
+</script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  color: white;
+}
+</style>
