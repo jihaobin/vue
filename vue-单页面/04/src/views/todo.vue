@@ -5,13 +5,14 @@ import axios from "axios";
 //组件
 import item from "../components/item.vue";
 
+//工具函数
+import myAxios from "../http/user/user";
+
 const todos = ref({});
-todos.value = await axios.get("http://localhost:3003/news").then((r) => r.data);
-const del = async () => {
-  todos.value = await axios
-    .get("http://localhost:3003/news")
-    .then((r) => r.data);
-};
+todos.value = await myAxios.get();
+async function del() {
+  todos.value = await myAxios.get();
+}
 </script>
 
 <template>

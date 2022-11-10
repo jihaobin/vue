@@ -15,17 +15,14 @@ export default {
 </template>
 
 <script setup>
-import axios from "axios";
+import myAxios from "../http/user/user";
 const props = defineProps({
   todo: { type: Object },
 });
 const emit = defineEmits(["del"]);
 
 const del = async () => {
-  await axios({
-    url: `http://localhost:3003/news/${props.todo.id}`,
-    method: "delete",
-  });
+  await myAxios.del(props.todo.id);
   emit("del");
 };
 </script>
