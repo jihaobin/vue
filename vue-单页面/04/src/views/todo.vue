@@ -1,39 +1,36 @@
 <script setup>
 //包
-import { ref } from "vue";
-import axios from "axios";
 //组件
 import item from "../components/item.vue";
+import add from "../components/add.vue";
+import sort from "../components/sort.vue";
+//逻辑复用
+import useTods from "../composables/todo.js";
 
-//工具函数
-import myAxios from "../http/user/user";
-
-const todos = ref({});
-todos.value = await myAxios.get();
-async function del() {
-  todos.value = await myAxios.get();
-}
+const { todos, load } = await useTods();
+load();
 </script>
 
 <template>
+  <div class="from">
+    <add />
+    <sort />
+  </div>
+
   <div>
-    <item
-      v-for="item in todos"
-      @del="del"
-      :key="item.id"
-      class="item"
-      :todo="item"
-    />
+    <item v-for="item in todos" :key="item.id" class="item" :todo="item" />
   </div>
 </template>
 
 <style lang="scss" scoped>
+.from {
+  flex-direction: row;
+  flex: 1;
+}
 div {
   display: flex;
   flex-direction: column;
   color: white;
-  .item {
-    margin-bottom: 10px;
-  }
+  margin-bottom: 5px;
 }
 </style>

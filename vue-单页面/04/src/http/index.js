@@ -15,15 +15,6 @@ myAxios.interceptors.request.use(
       config.headers["Authorization"] = localStorage.getItem("token"); // 请求头携带 token
     }
     // 设置请求头
-    if (!config.headers["content-type"]) {
-      // 如果没有设置请求头
-      if (config.method === "post") {
-        config.headers["content-type"] = "application/x-www-form-urlencoded"; // post 请求
-        config.data = qs.stringify(config.data); // 序列化,比如表单数据
-      } else {
-        config.headers["content-type"] = "application/json"; // 默认类型
-      }
-    }
     return config;
   },
   (error) => {
