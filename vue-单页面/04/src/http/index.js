@@ -1,6 +1,5 @@
 import axios from "axios";
 import axiosConfig from "./config/index";
-import qs from "qs";
 
 const myAxios = axios.create({
   baseURL: axiosConfig.baseURL, // 设置基础URL
