@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template>
-  <div class="root">
+  <div class="root" :data-index="index">
     <div class="item">
       <input type="text" :value="todo.title" />
       <button @click="del(todo.id)">删除</button>
@@ -15,19 +15,17 @@ export default {
 </template>
 
 <script setup>
-import myAxios from "../http/user/user";
-
 import useTods from "../composables/todo.js";
-import user from "../http/user/user";
 
 const { del } = useTods();
 
 const props = defineProps({
   todo: { type: Object },
+  index: { type: Number },
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .root {
   position: relative;
   width: 100%;
