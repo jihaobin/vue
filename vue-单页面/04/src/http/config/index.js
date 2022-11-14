@@ -1,5 +1,5 @@
 const axiosConfig = {
-  baseURL: "http://localhost:3003",
+  baseURL: "http://localhost:3000",
   useTokenAuthorization: true,
 };
 

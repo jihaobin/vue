@@ -1,7 +1,7 @@
 import myAxios from "../http/user/user.js";
 import { ref, watchEffect, watch } from "vue";
 
-const sortBy = ref("asc");
+const sortBy = ref("desc");
 const todos = ref({});
 export default () => {
   const load = async () => {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="input">
     <input
       type="text"
       v-model="title"
@@ -20,7 +20,8 @@ const onSubmint = () => {
 </script>
 
 <style lang="scss" scoped>
-div {
+.input {
+  display: flex;
   flex: 1;
   input {
     flex: 1;

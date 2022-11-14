@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root">
     <Suspense>
       <todo />
       <template #fallback> <div>loding...</div> </template>
@@ -14,5 +14,9 @@ import todo from "./views/todo.vue";
 <style lang="scss" scoped>
 div {
   color: white;
+}
+.root {
+  display: flex;
+  flex-direction: column;
 }
 </style>

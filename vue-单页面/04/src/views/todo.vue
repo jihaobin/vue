@@ -1,5 +1,6 @@
 <script setup>
 //包
+
 //组件
 import item from "../components/item.vue";
 import add from "../components/add.vue";
@@ -17,20 +18,34 @@ load();
     <sort />
   </div>
 
-  <div>
-    <item v-for="item in todos" :key="item.id" class="item" :todo="item" />
+  <div class="todo">
+    <transition-group name="todo">
+      <item v-for="item in todos" :key="item.id" :todo="item" class="item" />
+    </transition-group>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.from {
-  flex-direction: row;
-  flex: 1;
+.todo-leave-to,
+.todo-enter-from {
+  opacity: 0;
+  transform: scale(0);
 }
-div {
+.todo-leave-active {
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.todo-move {
+  transition: all 0.3s ease;
+}
+
+.from {
   display: flex;
-  flex-direction: column;
-  color: white;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+todo {
+  width: 100%;
+  margin-bottom: 20px;
 }
 </style>
