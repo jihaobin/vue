@@ -38,6 +38,10 @@
 2.beforeunmounted 组件被卸载前调用的方法
 
 
+# ref 和reactive的区别
+在一般开发中ref使用频率比较高
+只有当需要使用本地数据并且数据间组合时会产生意义时才使用reacitve
+
 # watch vs. watchEffect
 watch 和 watchEffect 都能响应式地执行有副作用的回调。它们之间的主要区别是追踪响应式依赖的方式：
 
