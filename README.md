@@ -38,6 +38,10 @@
 2.beforeunmounted 组件被卸载前调用的方法
 
 
+# ref 和reactive的区别
+
+
+
 # watch vs. watchEffect
 watch 和 watchEffect 都能响应式地执行有副作用的回调。它们之间的主要区别是追踪响应式依赖的方式：
 
@@ -51,3 +55,5 @@ watchEffect，则会在改变发生期间追踪依赖。它会在同步执行过
 2. 如果有很多基本类型需要定义的，可以包装成一个对象，一次性使用reactive转化成响应式
 
 3. 解决reactive生成的proxy对象解构会失去响应式的问题，可以使用toRefs响应式对象转换为一个个的ref使用，
+4. 在一般开发中ref使用频率比较高
+5. 只有当需要使用本地数据并且数据间组合时会产生意义时才使用reacitve
