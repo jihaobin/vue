@@ -4,10 +4,26 @@
   <router-link to="/about" active-class="active">关于</router-link>
   <router-link to="/user/123" active-class="active">用户-123</router-link>
   <router-link to="/user/456" active-class="active">用户-456</router-link>
+  <router-link to="/home/1" active-class="active">1</router-link>
+  <router-link to="/home/2" active-class="active">2</router-link>
+
+  <button @click="routerhome">首页</button>
+  <button @click="routerabout">关于</button>
+
   <router-view></router-view>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+import router from "./router";
+const roter = useRoute();
+const routerhome = () => {
+  router.push("/home");
+};
+const routerabout = () => {
+  router.push("/about");
+};
+</script>
 
 <style lang="scss" scoped>
 .active {

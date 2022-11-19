@@ -13,9 +13,19 @@ const router = createRouter({
       redirect: "/home", // 让初识路由重定向到/home
     },
     {
-      name: "name",
+      name: "home",
       path: "/home/",
       component: () => import("../views/home.vue"),
+      children: [
+        {
+          path: 1,
+          component: () => import("../views/home1.vue"),
+        },
+        {
+          path: 2,
+          component: () => import("../views/home2.vue"),
+        },
+      ],
     },
     {
       name: "about",
